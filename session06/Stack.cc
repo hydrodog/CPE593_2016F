@@ -5,7 +5,7 @@ public:
 
 	Stack() {}
 
-	void push(int v) { a.addEnd(v); }
+	void push(int v) {  a.addEnd(v); }
 	int pop() { return a.removeEnd(); }
 
 	int size() const { return a.getUsed(); } // return the number of elements on the stack

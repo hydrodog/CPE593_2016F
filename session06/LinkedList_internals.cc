@@ -18,8 +18,6 @@ public:
 			q = p->next;
 			delete p; //O(1)
 		}
-
-
 	}
 
 	void addEnd(int v) { //O(n)
@@ -51,6 +49,7 @@ public:
 		if (head == nullptr)
 			return;
 		if (head->next == nullptr) {
+			delete head;
 			head = nullptr;
 			return;
 		}
@@ -86,6 +85,30 @@ public:
 				throw "LinkedList index out of bounds";
     return p->val;
 	}
+	class Iter {
+	private:
+		Node* cur;
+	public:
+		Iter(LinkedList& list) {
+			cur = list.head;
+		}
+		bool operator !() const { return cur != nullptr; }
+		void operator ++() { cur = cur ->next; }
+		int& operator *() { return cur->val; }
+	};
+
+	class Const_Iter {
+	private:
+		Node* cur;
+	public:
+		Const_Iter(const LinkedList& list) {
+			cur = list.head;
+		}
+		bool operator !() const { return cur != nullptr; }
+		void operator ++() { cur = cur ->next; }
+		int operator *() const { return cur->val; }
+	};
+
 }	;
 
 
@@ -96,6 +119,8 @@ int main() {
 	cout << a << '\n';
 	for (int i = 0; i < 10; i++)
 		a.addEnd(i);
+	for (LinkedList::Iter i = a; !i; ++i)
+		*i *= 2;
 	cout << a << '\n';
 }
 	
