@@ -11,7 +11,10 @@ public class LinkedList {
     head = null;
 	}
 
+	// no need to do this in Java, the garbage collector handles the memory
+	public void finalize() {
 
+	}
 	public void addEnd(int v) {
 		if (head == null) {
 			head = new Node();
