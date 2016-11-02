@@ -17,7 +17,7 @@ void badmagic3b() {
 	const int rowsum = 15;
 	for (int a = 1; a <= 9; a++) {
 		const int bmax = rowsum - a - 1;
-		const int bmin = rowsum - a - bmax;
+		const int bmin = rowsum - a - 9;
 		for (int b = bmin; b <= bmax; b++) {
 			if (a == b)
 				continue;
