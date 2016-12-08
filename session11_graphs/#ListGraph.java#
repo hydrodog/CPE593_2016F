@@ -1,0 +1,25 @@
+public class ListGraph {
+	private class Edge {
+		double w;
+		int to;
+	}
+
+	private Edge[][] e;
+
+	//use Double.POSITIVE_INFINITY to represent no connection
+
+	public ListGraph(int v) {
+		e = new Edge[v][v];
+		this.v = v;
+		for (int i = 0; i < w.length; ++i)
+			w[i] = Double.POSITIVE_INFINITY;
+	}
+	public void setWeight(int from, int to, double w) {
+		this.w[from*v + to] = w;
+	}
+	public double getWeight(int from, int to) { //O(1)
+		return this.w[from*v + to];
+	}
+
+	
+	
